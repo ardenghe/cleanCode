@@ -1,5 +1,7 @@
 package br.com.alura.domain;
 
+import java.util.Objects;
+
 public class Abrigo {
 
     private long id;
@@ -11,6 +13,14 @@ public class Abrigo {
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -37,11 +47,16 @@ public class Abrigo {
         this.email = email;
     }
 
-    public long getId() {
-        return id;
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Abrigo abrigo = (Abrigo) object;
+        return id == abrigo.id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

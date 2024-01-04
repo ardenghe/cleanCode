@@ -1,6 +1,17 @@
 package br.com.alura.domain;
 
+import java.util.Objects;
+
 public class Pet {
+
+
+    private Long id;
+    private String tipo;
+    private String nome;
+    private String raca;
+    private int idade;
+    private String cor;
+    private Float peso;
 
     public Pet(String tipo, String nome, String raca, int idade, String cor, Float peso) {
         this.tipo = tipo;
@@ -10,14 +21,6 @@ public class Pet {
         this.cor = cor;
         this.peso = peso;
     }
-
-    private Long id;
-    private String tipo;
-    private String nome;
-    private String raca;
-    private int idade;
-    private String cor;
-    private Float peso;
 
     public Long getId() {
         return id;
@@ -73,5 +76,18 @@ public class Pet {
 
     public void setPeso(Float peso) {
         this.peso = peso;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Pet pet = (Pet) object;
+        return Objects.equals(id, pet.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
