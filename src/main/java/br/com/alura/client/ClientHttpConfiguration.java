@@ -9,7 +9,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ClientHttpConfiguration {
-
     public HttpResponse<String> dispararRequisicaoGet(String uri) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
 

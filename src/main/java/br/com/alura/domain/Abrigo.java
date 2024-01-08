@@ -1,13 +1,10 @@
 package br.com.alura.domain;
 
-import java.util.Objects;
-
 public class Abrigo {
 
-    private long id;
-    private String nome;
-    private String telefone;
-    private String email;
+    public Abrigo() {
+
+    }
 
     public Abrigo(String nome, String telefone, String email) {
         this.nome = nome;
@@ -15,48 +12,40 @@ public class Abrigo {
         this.email = email;
     }
 
-    public long getId() {
-        return id;
-    }
+    private Long id;
+    private String nome;
+    private String telefone;
+    private String email;
+    private Pet[] pets;
 
-    public void setId(long id) {
-        this.id = id;
+    public Long getId() {
+        return id;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getTelefone() {
         return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public Pet[] getPets() {
+        return pets;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        Abrigo abrigo = (Abrigo) object;
-        return id == abrigo.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public String toString() {
+        return """
+               "id":%s,"nome":"%s","telefone":"%s","email":"%s"
+               """.formatted(this.id, this.nome, this.telefone, this.email);
     }
 }
