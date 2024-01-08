@@ -31,15 +31,6 @@ public class AbrigoService {
         }
     }
 
-    private void mostrarAbrigos(List<Abrigo> abrigos) {
-        System.out.println("Abrigos cadastrados:");
-        for (Abrigo abrigo : abrigos) {
-            long id = abrigo.getId();
-            String nome = abrigo.getNome();
-            System.out.println(id +" - " +nome);
-        }
-    }
-
     public void cadastrarAbrigo() throws IOException, InterruptedException {
         System.out.println("Digite o nome do abrigo:");
         String nome = new Scanner(System.in).nextLine();
@@ -60,6 +51,15 @@ public class AbrigoService {
         } else if (statusCode == 400 || statusCode == 500) {
             System.out.println("Erro ao cadastrar o abrigo:");
             System.out.println(responseBody);
+        }
+    }
+
+    private void mostrarAbrigos(List<Abrigo> abrigos) {
+        System.out.println("Abrigos cadastrados:");
+        for (Abrigo abrigo : abrigos) {
+            long id = abrigo.getId();
+            String nome = abrigo.getNome();
+            System.out.println(id + " - " + nome);
         }
     }
 }

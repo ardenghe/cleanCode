@@ -63,4 +63,5 @@ public class AbrigoServiceTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
 }
